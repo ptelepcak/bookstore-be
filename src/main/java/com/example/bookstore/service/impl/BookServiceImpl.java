@@ -29,6 +29,16 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Page<Book> findByGenre(String genre, Pageable pageable) {
+        return bookRepository.findByGenre(genre, pageable);
+    }
+
+    @Override
+    public Page<Book> findByTitleOrAuthorOrGenre(String query, Pageable pageable) {
+        return bookRepository.findByTitleOrAuthorOrGenre(query, pageable);
+    }
+
+    @Override
     public Book createBook(Book book) {
         return bookRepository.save(book);
     }

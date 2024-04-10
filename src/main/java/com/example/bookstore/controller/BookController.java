@@ -22,6 +22,11 @@ public class BookController {
         return bookService.createBook(book);
     }
 
+    @GetMapping("/{query}")
+    public Page<Book> getByTitleOrAuthorOrGenre(@PathVariable String query, @PageableDefault Pageable pageableRequest){
+        return bookService.findByTitleOrAuthorOrGenre(query, pageableRequest);
+    }
+
     @GetMapping("/author/{author}")
     public Page<Book> getByAuthor(@PathVariable String author, @PageableDefault Pageable pageableRequest){
         return bookService.findByAuthor(author, pageableRequest);
@@ -30,6 +35,11 @@ public class BookController {
     @GetMapping("/title/{title}")
     public Page<Book> getByTitle(@PathVariable String title, @PageableDefault Pageable pageableRequest){
         return bookService.findByTitle(title, pageableRequest);
+    }
+
+    @GetMapping("/genre/{genre}")
+    public Page<Book> getByGenre(@PathVariable String genre, @PageableDefault Pageable pageableRequest){
+        return bookService.findByGenre(genre, pageableRequest);
     }
 
     @PutMapping("/{id}")
