@@ -27,25 +27,25 @@ public class BookController {
     }
 
     @GetMapping("/{stringQuery}")
-    @Operation(summary = "Search for books by title, author or genre (word based by default)")
+    @Operation(summary = "Search for books by title, author or genre (word based)")
     public Page<BookDTO> getByTitleOrAuthorOrGenre(@PathVariable String stringQuery, @PageableDefault Pageable pageableRequest){
         return bookService.findByTitleOrAuthorOrGenre(stringQuery, pageableRequest);
     }
 
     @GetMapping("/author/{author}")
-    @Operation(summary = "Find books by author (word based by default)")
+    @Operation(summary = "Find books by author (word based)")
     public Page<BookDTO> getByAuthor(@PathVariable String author, @PageableDefault Pageable pageableRequest){
         return bookService.findByAuthor(author, pageableRequest);
     }
 
     @GetMapping("/title/{title}")
-    @Operation(summary = "Find books by title (word based by default)")
+    @Operation(summary = "Find books by title (word based)")
     public Page<BookDTO> getByTitle(@PathVariable String title, @PageableDefault Pageable pageableRequest){
         return bookService.findByTitle(title, pageableRequest);
     }
 
     @GetMapping("/genre/{genre}")
-    @Operation(summary = "Find books by genre (word based by default)")
+    @Operation(summary = "Find books by genre (word based)")
     public Page<BookDTO> getByGenre(@PathVariable String genre, @PageableDefault Pageable pageableRequest){
         return bookService.findByGenre(genre, pageableRequest);
     }
