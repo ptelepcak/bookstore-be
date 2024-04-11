@@ -2,7 +2,6 @@ package com.example.bookstore.service;
 
 import com.example.bookstore.controller.command.BookCommand;
 import com.example.bookstore.controller.dto.BookDTO;
-import com.example.bookstore.model.Book;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.Pageable;
