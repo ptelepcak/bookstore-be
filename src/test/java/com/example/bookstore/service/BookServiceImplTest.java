@@ -15,8 +15,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.math.BigDecimal;
 
+import static com.example.bookstore.mock.BookMock.mockBook;
+import static com.example.bookstore.mock.BookMock.mockBookCommand;
 import static org.mockito.Mockito.*;
 
 class BookServiceImplTest {
@@ -34,19 +35,7 @@ class BookServiceImplTest {
         bookService = new BookServiceImpl(bookRepository, bookMapper, bookCommandMapper);
     }
 
-    private Book mockBook(){
-        Book book = new Book();
-        book.setId("1");
-        book.setAuthor("Author Authorson");
-        book.setTitle("Book Title");
-        book.setGenre("Biography");
-        book.setPrice(new BigDecimal(100));
-        return book;
-    }
 
-    private BookCommand mockBookCommand(){
-        return new BookCommand("Book Title","Author Authorson", "Biography", new BigDecimal(100));
-    }
 
     @Test
     void testFindByTitle() {
