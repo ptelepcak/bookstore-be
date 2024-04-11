@@ -52,13 +52,13 @@ public class BookController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Modify existing book")
-    public BookDTO updateBook(String id, @Valid @RequestBody BookCommand bookCommand){
+    public BookDTO updateBook(@PathVariable String id, @Valid @RequestBody BookCommand bookCommand){
         return bookService.updateBook(id, bookCommand);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete existing book")
-    public void deleteBook(String id){
+    public void deleteBook(@PathVariable String id){
         bookService.deleteBook(id);
     }
 }
